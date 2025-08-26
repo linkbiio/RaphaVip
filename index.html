@@ -68,24 +68,35 @@
     /* Product grid */
     .grid4{display:grid;gap:24px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
     .card{
-      background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;position:relative;transition:transform .2s
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      transition: transform .2s, box-shadow .2s;
     }
-    .card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .card:hover{transform:translateY(-4px);box-shadow:0 0 20px rgba(160,32,240,0.4)}
     .card .thumb{height:220px;background:#000}
     .card .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05)}
     .card .body{padding:16px}
-    .card .title{font-weight:700;margin:0 0 6px}
-    .price{font-weight:800;font-size:1.05rem}
+    .card .title{font-weight:700;margin:0 0 6px;color:var(--accent-2)}
+    .price{font-weight:800;font-size:1.05rem;color:var(--accent)}
     .price s{color:#aaa;font-weight:600;margin-right:6px}
     .cta-card{display:flex;justify-content:space-between;gap:10px;margin-top:10px;flex-wrap:wrap}
 
     /* Painéis principais */
-    .panel{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-    h2{margin:0 0 12px;font-size:2rem}
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+    h2{margin:0 0 12px;font-size:2rem;color:var(--accent-2)}
     p.lead{margin:0;color:var(--muted);line-height:1.65;font-size:1.05rem}
   </style>
 </head>
 <body>
-  <!-- o restante do código permanece igual -->
+  <!-- resto do código continua igual -->
 </body>
 </html>
