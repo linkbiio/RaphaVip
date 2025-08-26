@@ -1,1 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RaphaVip | Conteúdos 18+</title>
+  <meta name="description" content="Site oficial da RaphaVip – Assinatura VIP, packs, loja e conteúdos adultos 18+. Sexy e profissional." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0a0d;
+      --bg-2:#12101a;
+      --card:#171422;
+      --ink:#f6f2ff;
+      --muted:#b6a8cf;
+      --accent:#a020f0;   /* roxo neon */
+      --accent-2:#ff4ecd; /* pink neon */
+      --gold:#f7c948;     /* dourado */
+      --ok:#22c55e;
+      --danger:#ef4444;
+      --shadow:0 8px 30px rgba(160,32,240,.25);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:radial-gradient(1200px 700px at 10% -10%, rgba(255,78,205,.10), transparent 60%),
+               radial-gradient(1200px 700px at 110% 10%, rgba(160,32,240,.18), transparent 60%), var(--bg);
+               color:var(--ink);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    a{color:inherit;text-decoration:none}
+
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);
+      background:linear-gradient(to right, rgba(11,10,13,.75), rgba(18,16,26,.75));
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .wrap{max-width:1180px;margin:0 auto;padding:18px 22px}
+    .row{display:flex;align-items:center;gap:18px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:42px;height:42px;border-radius:50%;
+      background:conic-gradient(from 140deg, var(--accent), var(--accent-2), var(--gold), var(--accent));
+      box-shadow:0 0 0 3px rgba(255,255,255,.06), 0 8px 24px rgba(255,78,205,.25)}
+    .brand h1{font-size:1.38rem;margin:0;font-weight:800;letter-spacing:.3px}
+    .brand small{display:block;color:var(--muted);font-weight:500;margin-top:-2px}
+
+    /* Nav */
+    nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+    .tab{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;
+      background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);
+      transition:all .2s ease;cursor:pointer;font-weight:600;color:#eee}
+    .tab svg{width:18px;height:18px;opacity:.9}
+    .tab:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+    .tab.active{background:linear-gradient(90deg, rgba(160,32,240,.16), rgba(255,78,205,.14));
+      border-color:rgba(255,255,255,.12)}
+
+    /* Layout */
+    .grid{max-width:1180px;margin:22px auto;display:grid;gap:22px;grid-template-columns:260px 1fr 320px}
+    @media (max-width:1100px){.grid{grid-template-columns:240px 1fr}} 
+    @media (max-width:930px){.grid{grid-template-columns:1fr}} 
+
+    /* Left – Gallery */
+    .side{
+      position:sticky;top:92px;align-self:start;display:flex;flex-direction:column;gap:14px
+    }
+    .photo{
+      border-radius:var(--radius);overflow:hidden;background:var(--card);
+      border:1px solid rgba(255,255,255,.06);box-shadow:var(--shadow)
+    }
+    .photo img{display:block;width:100%;height:320px;object-fit:cover}
+    .badge{position:absolute;top:10px;left:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      padding:6px 10px;border-radius:999px;font-size:.78rem;font-weight:700}
+    .photo.box{position:relative}
+
+    /* Center – Content */
+    .center{display:flex;flex-direction:column;gap:18px}
+    .hero{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:stretch
+    }
+    @media (max-width:930px){.hero{grid-template-columns:1fr}}
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+      border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)
+    }
+    .hero .panel{display:flex;flex-direction:column;justify-content:center}
+    h2{margin:0 0 8px;font-size:1.8rem}
+    p.lead{margin:0;color:var(--muted);line-height:1.65}
+
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;
+      font-weight:700;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);
+      cursor:pointer;transition:all .2s ease}
+    .btn svg{width:18px;height:18px}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));border-color:transparent}
+    .btn.primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
+    .btn.outline:hover{background:rgba(255,255,255,.12)}
+
+    /* Sections */
+    .sections .section{display:none}
+    .sections .section.active{display:block}
+
+    /* Product grid */
+    .grid4{display:grid;gap:16px;grid-template-columns:repeat(4,1fr)}
+    @media (max-width:1100px){.grid4{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:780px){.grid4{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:520px){.grid4{grid-template-columns:1fr}}
+    .card{
+      background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;position:relative
+    }
+    .card .thumb{height:180px;background:#000}
+    .card .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05)}
+    .card .body{padding:14px}
+    .card .title{font-weight:700;margin:0 0 6px}
+    .price{font-weight:800;font-size:1.05rem}
+    .price s{color:#aaa;font-weight:600;margin-right:6px}
+    .cta-card{display:flex;justify-content:space-between;gap:10px;margin-top:10px}
+    .pill{font-size:.78rem;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+
+    /* Right – Subscribe */
+    .right{position:sticky;top:92px;align-self:start;display:flex;flex-direction:column;gap:18px}
+    .subscribe{background:linear-gradient(180deg, rgba(160,32,240,.16), rgba(255,78,205,.10));}
+    .features{display:grid;gap:10px}
+    .feat{display:flex;gap:10px;align-items:flex-start}
+    .feat .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);margin-top:8px;box-shadow:0 0 0 3px rgba(247,201,72,.2)}
+
+    /* Testimonials */
+    .quote{font-style:italic;color:#ddd}
+
+    /* Footer */
+    footer{margin:40px auto 20px;max-width:1180px;padding:0 22px;color:#cfc6dd}
+    footer .fine{font-size:.85rem;opacity:.85}
+
+    /* Age Gate */
+    .age-gate{position:fixed;inset:0;background:rgba(8,6,12,.85);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:100}
+    .age-gate.active{display:flex}
+    .age-card{max-width:560px;padding:26px;border-radius:20px;background:var(--bg-2);border:1px solid rgba(255,255,255,.1);box-shadow:var(--shadow)}
+    .age-card h3{margin:0 0 6px}
+    .age-card p{margin:0 0 16px;color:var(--muted)}
+
+    /* Utilities */
+    .note{font-size:.86rem;color:var(--muted)}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-size:.78rem}
+    .divider{height:1px;background:linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);margin:10px 0}
+  </style>
+</head>
+<body>
+  <!-- AGE GATE -->
+  <div class="age-gate" id="ageGate">
+    <div class="age-card">
+      <h3>Conteúdo 18+</h3>
+      <p>Este site é destinado exclusivamente a adultos. Ao prosseguir você confirma ter 18 anos ou mais.</p>
+      <div class="cta-row">
+        <button class="btn primary" id="btnEnter">Tenho 18+</button>
+        <button class="btn outline" id="btnLeave">Sair</button>
+      </div>
+      <p class="note">Você pode alterar esta configuração limpando o armazenamento do navegador.</p>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="wrap row">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <h1>RaphaVip <span class="tag">oficial</span></h1>
+          <small>Conteúdos premium | 18+</small>
+        </div>
+      </div>
+      <nav id="mainNav">
+        <a class="tab active" data-section="home" href="#home">🏠 Início</a>
+        <a class="tab" data-section="vip" href="#vip">💎 Assinatura VIP</a>
+        <a class="tab" data-section="store" href="#store">🛍️ Loja</a>
+        <a class="tab" data-section="packs" href="#packs">📦 Packs</a>
+        <a class="tab" data-section="custom" href="#custom">✨ Conteúdo Personalizado</a>
+        <a class="tab" data-section="faq" href="#faq">❓ FAQ</a>
+        <a class="tab" data-section="contact" href="#contact">📨 Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN GRID -->
+  <main class="grid">
+    <!-- LEFT: Photos -->
+    <aside class="side">
+      <div class="photo box">
+        <span class="badge">NEW</span>
+        <img src="assets/raphavip-hero-1.jpg" alt="RaphaVip – foto 1" />
+      </div>
+      <div class="photo"><img src="assets/raphavip-hero-2.jpg" alt="RaphaVip – foto 2" /></div>
+      <div class="photo"><img src="assets/raphavip-hero-3.jpg" alt="RaphaVip – foto 3" /></div>
+    </aside>
+
+    <!-- CENTER: Content -->
+    <section class="center">
+      <div class="hero">
+        <div class="panel">
+          <h2>Bem-vindo(a) ao universo <span style="color:var(--accent-2)">RaphaVip</span> 💋</h2>
+          <p class="lead">Assine o clube VIP para desbloquear conteúdos exclusivos, bastidores, packs mensais, lives privadas, chat fechado e muito mais. Tudo com qualidade premium, atendimento próximo e 100% seguro.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#vip" data-section="vip" id="ctaAssinar">Assinar agora</a>
+            <a class="btn outline" href="#store" data-section="store">Ver produtos</a>
+          </div>
+          <div class="divider"></div>
+          <span class="note">Pagamento anônimo e seguro. Cancelamento fácil a qualquer momento.</span>
+        </div>
+        <div class="panel">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div class="row" style="justify-content:space-between">
+              <span class="tag">Atualizado semanalmente</span>
+              <span class="tag">+18 somente</span>
+            </div>
+            <img src="assets/raphavip-banner.jpg" alt="Banner RaphaVip" style="width:100%;height:260px;object-fit:cover;border-radius:14px;border:1px solid rgba(255,255,255,.1)"/>
+            <div class="row" style="gap:12px;flex-wrap:wrap">
+              <span class="pill">Stories quentes</span>
+              <span class="pill">Bastidores</span>
+              <span class="pill">Ensaio exclusivo</span>
+              <span class="pill">Conteúdo premium 4K</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sections">
+        <!-- HOME -->
+        <section id="home" class="section active">
+          <div class="panel">
+            <h2>Destaques da semana</h2>
+            <div class="grid4">
+              <article class="card">
+                <div class="thumb"><img src="assets/prod-01.jpg" alt="Preview 1"></div>
+                <div class="body">
+                  <h3 class="title">Ensaio Neon</h3>
+                  <div class="note">Pacote de fotos sensuais edição neon.</div>
+                  <div class="cta-card">
+                    <div class="price"><s>R$ 129,90</s> R$ 89,90</div>
+                    <a class="btn primary" href="#">Comprar</a>
+                  </div>
+                </div>
+              </article>
+              <article class="card">
+                <div class="thumb"><img src="assets/prod-02.jpg" alt="Preview 2"></div>
+                <div class="body">
+                  <h3 class="title">Pack VIP de Boas-vindas</h3>
+                  <div class="note">Conteúdo inicial para novos assinantes.</div>
+                  <div class="cta-card">
+                    <div class="price">Grátis c/ assinatura</div>
+                    <a class="btn outline" href="#vip" data-section="vip">Assinar</a>
+                  </div>
+                </div>
+              </article>
+              <article class="card">
+                <div class="thumb"><img src="assets/prod-03.jpg" alt="Preview 3"></div>
+                <div class="body">
+                  <h3 class="title">Stories Exclusivos (30 dias)</h3>
+                  <div class="note">Acesso a stories diários e proximidade.</div>
+                  <div class="cta-card">
+                    <div class="price"><s>R$ 79,90</s> R$ 59,90</div>
+                    <a class="btn primary" href="#">Comprar</a>
+                  </div>
+                </div>
+              </article>
+              <article class="card">
+                <div class="thumb"><img src="assets/prod-04.jpg" alt="Preview 4"></div>
+                <div class="body">
+                  <h3 class="title">Poster Autografado (digital)</h3>
+                  <div class="note">Assinatura digital personalizada.</div>
+                  <div class="cta-card">
+                    <div class="price">R$ 39,90</div>
+                    <a class="btn primary" href="#">Comprar</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIP -->
+        <section id="vip" class="section">
+          <div class="panel subscribe">
+            <h2>Assinatura VIP RaphaVip</h2>
+            <p class="lead">Acesso completo a conteúdos premium, close friends, lives privadas, sorteios mensais e grupo fechado.</p>
+            <div class="features">
+              <div class="feat"><span class="dot"></span><div><strong>Atualizações semanais</strong><br/><span class="note">Novos ensaios, packs e bastidores.</span></div></div>
+              <div class="feat"><span class="dot"></span><div><strong>Atendimento dedicado</strong><br/><span class="note">Suporte ágil por e-mail/WhatsApp.</span></div></div>
+              <div class="feat"><span class="dot"></span><div><strong>Bônus exclusivos</strong><br/><span class="note">Pack de boas-vindas + descontos.</span></div></div>
+            </div>
+            <div class="cta-row">
+              <a class="btn primary" href="https://pay.seulink.com/rapha-assinatura" target="_blank" rel="noopener">Assinar por R$ 49,90/mês</a>
+              <a class="btn outline" href="#faq" data-section="faq">Dúvidas</a>
+            </div>
+            <p class="note">Pagamento seguro. Cancele quando quiser.</p>
+          </div>
+        </section>
+
+        <!-- STORE -->
+        <section id="store" class="section">
+          <div class="panel">
+            <h2>Loja</h2>
+            <div class="grid4">
+              <!-- Replique os cards para mais produtos -->
+              <article class="card">
+                <div class="thumb"><img src="assets/prod-05.jpg" alt="Produto 5"></div>
+                <div class="body">
+                  <h3 class="title">Mini Pack Noir</h3>
+                  <div class="note">Tema preto & roxo, 25 fotos.</div>
+                  <div class="cta-card">
+                    <div class="price">R$ 29,90</div>
+                    <a class="btn primary" href="https://pay.seulink.com/prod05" target="_blank" rel="noopener">Comprar</a>
+                  </div>
+                </div>
+              </article>
+              <article class="card">
+                <div class="thumb"><img src="assets/prod-06.jpg" alt="Produto 6"></div>
+                <div class="body">
+                  <h3 class="title">Video Teaser Deluxe</h3>
+                  <div class="note">Teaser sensual full HD.</div>
+                  <div class="cta-card">
+                    <div class="price">R$ 24,90</div>
+                    <a class="btn primary" href="https://pay.seulink.com/prod06" target="_blank" rel="noopener">Comprar</a>
+                  </div>
+                </div>
+              </article>
+              <article class="card">
+                <div class="thumb"><img src="assets/prod-07.jpg" alt="Produto 7"></div>
+                <div class="body">
+                  <h3 class="title">Calendário Digital</h3>
+                  <div class="note">12 meses – temática premium.</div>
+                  <div class="cta-card">
+                    <div class="price">R$ 19,90</div>
+                    <a class="btn primary" href="https://pay.seulink.com/prod07" target="_blank" rel="noopener">Comprar</a>
+                  </div>
+                </div>
+              </article>
+              <article class="card">
+                <div class="thumb"><img src="assets/prod-08.jpg" alt="Produto 8"></div>
+                <div class="body">
+                  <h3 class="title">Wallpaper Pack 4K</h3>
+                  <div class="note">8 papéis de parede exclusivos.</div>
+                  <div class="cta-card">
+                    <div class="price">R$ 14,90</div>
+                    <a class="btn primary" href="https://pay.seulink.com/prod08" target="_blank" rel="noopener">Comprar</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- PACKS -->
+        <section id="packs" class="section">
+          <div class="panel">
+            <h2>Packs Promocionais</h2>
+            <div class="grid4">
+              <article class="card">
+                <div class="thumb"><img src="assets/pack-01.jpg" alt="Pack 1"></div>
+                <div class="body">
+                  <h3 class="title">Pack Luxo (3 em 1)</h3>
+                  <div class="note">Três coleções completas.</div>
+                  <div class="cta-card">
+                    <div class="price"><s>R$ 199,90</s> R$ 129,90</div>
+                    <a class="btn primary" href="https://pay.seulink.com/packluxe" target="_blank" rel="noopener">Comprar</a>
+                  </div>
+                </div>
+              </article>
+              <article class="card">
+                <div class="thumb"><img src="assets/pack-02.jpg" alt="Pack 2"></div>
+                <div class="body">
+                  <h3 class="title">Pack Neon (2 em 1)</h3>
+                  <div class="note">Duas coleções temáticas.</div>
+                  <div class="cta-card">
+                    <div class="price"><s>R$ 129,90</s> R$ 89,90</div>
+                    <a class="btn primary" href="https://pay.seulink.com/packneon" target="_blank" rel="noopener">Comprar</a>
+                  </div>
+                </div>
+              </article>
+              <article class="card">
+                <div class="thumb"><img src="assets/pack-03.jpg" alt="Pack 3"></div>
+                <div class="body">
+                  <h3 class="title">Pack Iniciante</h3>
+                  <div class="note">Comece com tudo.</div>
+                  <div class="cta-card">
+                    <div class="price">R$ 59,90</div>
+                    <a class="btn primary" href="https://pay.seulink.com/packstart" target="_blank" rel="noopener">Comprar</a>
+                  </div>
+                </div>
+              </article>
+              <article class="card">
+                <div class="thumb"><img src="assets/pack-04.jpg" alt="Pack 4"></div>
+                <div class="body">
+                  <h3 class="title">Pack Wallpapers</h3>
+                  <div class="note">Coleção 4K para celular/PC.</div>
+                  <div class="cta-card">
+                    <div class="price">R$ 24,90</div>
+                    <a class="btn primary" href="https://pay.seulink.com/packwalls" target="_blank" rel="noopener">Comprar</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- CUSTOM -->
+        <section id="custom" class="section">
+          <div class="panel">
+            <h2>Conteúdo Personalizado</h2>
+            <p class="lead">Faça seu pedido com preferências (tema, roupa, clima, frases). Conteúdo sempre respeitando limites legais e de plataforma.</p>
+            <div class="cta-row">
+              <a class="btn primary" href="https://wa.me/5599999999999?text=Ol%C3%A1%20RaphaVip%2C%20quero%20conte%C3%BAdo%20personalizado" target="_blank" rel="noopener">Pedir via WhatsApp</a>
+              <a class="btn outline" href="mailto:contato@raphavip.com">Pedir por e-mail</a>
+            </div>
+            <p class="note">Tempo e preço variam conforme o pedido. Sem conteúdo explícito envolvendo menores, violência, não-consenso ou qualquer atividade ilegal.</p>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="section">
+          <div class="panel">
+            <h2>FAQ</h2>
+            <details open>
+              <summary><strong>Como funciona a assinatura?</strong></summary>
+              <p class="note">Após o pagamento, você recebe acesso imediato à área VIP. A renovação é mensal e pode ser cancelada quando quiser.</p>
+            </details>
+            <details>
+              <summary><strong>Quais formas de pagamento?</strong></summary>
+              <p class="note">Pix, cartão de crédito e boleto (dependendo do provedor de pagamento).</p>
+            </details>
+            <details>
+              <summary><strong>Posso baixar os arquivos?</strong></summary>
+              <p class="note">Alguns produtos permitem download. Em outros casos, o acesso é por streaming seguro.</p>
+            </details>
+            <details>
+              <summary><strong>Política de reembolso</strong></summary>
+              <p class="note">Por se tratar de conteúdo digital, reembolsos seguem a legislação aplicável e a política do gateway.</p>
+            </details>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section">
+          <div class="panel">
+            <h2>Contato</h2>
+            <p class="note">Parcerias, imprensa e suporte:</p>
+            <div class="cta-row">
+              <a class="btn outline" href="mailto:contato@raphavip.com">contato@raphavip.com</a>
+              <a class="btn outline" href="https://instagram.com/raphavip" target="_blank" rel="noopener">Instagram</a>
+              <a class="btn outline" href="https://t.me/raphavip" target="_blank" rel="noopener">Telegram</a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+    <!-- RIGHT: Subscribe / Social proof -->
+    <aside class="right">
+      <div class="panel">
+        <h3 style="margin:0 0 6px">🔥 Oferta por tempo limitado</h3>
+        <div class="note">Assine hoje e receba o <strong>Pack de Boas-vindas</strong> grátis.</div>
+        <div class="cta-row" style="margin-top:12px">
+          <a class="btn primary" href="https://pay.seulink.com/rapha-assinatura" target="_blank" rel="noopener">Assinar VIP</a>
+          <a class="btn outline" href="#packs" data-section="packs">Ver Packs</a>
+        </div>
+      </div>
+      <div class="panel">
+        <h3 style="margin:0 0 6px">⭐ Depoimentos</h3>
+        <p class="quote">“Atendimento perfeito e conteúdo TOP. Virei fã!”</p>
+        <p class="quote">“Assinei e não me arrependo. Muito profissional.”</p>
+      </div>
+      <div class="panel">
+        <h3 style="margin:0 0 6px">🔐 Segurança</h3>
+        <p class="note">Privacidade total e pagamentos protegidos. Seus dados ficam seguros.</p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="fine">
+      <p><strong>Aviso 18+:</strong> Este site é destinado exclusivamente a adultos. É proibido o compartilhamento não autorizado de conteúdos. Todos os modelos têm 18 anos ou mais.</p>
+      <p>
+        <a href="#" class="note">Termos de Uso</a> ·
+        <a href="#" class="note">Política de Privacidade</a> ·
+        <a href="#contact" data-section="contact" class="note">Contato</a>
+      </p>
+      <p class="note">© <span id="y"></span> RaphaVip. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Tabs / Sections
+    const nav = document.getElementById('mainNav');
+    const sections = document.querySelectorAll('.sections .section');
+
+    function activate(sectionId){
+      document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.tab[data-section="'+sectionId+'"]').forEach(t=>t.classList.add('active'));
+      sections.forEach(s=>s.classList.remove('active'));
+      const target=document.getElementById(sectionId);
+      if(target){target.classList.add('active');}
+      // scroll into view on mobile
+      if(window.innerWidth < 930){
+        window.scrollTo({top:document.querySelector('header').offsetHeight + 12, behavior:'smooth'});
+      }
+    }
+
+    nav.addEventListener('click', (e)=>{
+      const el = e.target.closest('.tab');
+      if(!el) return;
+      e.preventDefault();
+      const sec = el.getAttribute('data-section');
+      activate(sec);
+      history.replaceState(null, '', '#'+sec);
+    });
+
+    // CTA shortcut
+    document.getElementById('ctaAssinar').addEventListener('click', (e)=>{
+      e.preventDefault();
+      activate('vip');
+      history.replaceState(null,'','#vip');
+    });
+
+    // Deep link on load
+    const hash = (location.hash||'#home').replace('#','');
+    activate(hash);
+
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Age Gate
+    const gate = document.getElementById('ageGate');
+    const ok = localStorage.getItem('raphavip_age_ok');
+    if(!ok){gate.classList.add('active');}
+    document.getElementById('btnEnter').onclick=()=>{localStorage.setItem('raphavip_age_ok','1');gate.classList.remove('active');}
+    document.getElementById('btnLeave').onclick=()=>{window.location.href='https://www.google.com';}
+  </script>
+</body>
+</html>
 
