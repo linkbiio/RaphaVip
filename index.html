@@ -1,248 +1,61 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RaphaVip | Conteúdos 18+</title>
-  <meta name="description" content="Site oficial da RaphaVip – Assinatura VIP, packs, loja e conteúdos adultos 18+. Sexy e profissional." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0b0a0d;
-      --bg-2:#12101a;
-      --card:#171422;
-      --ink:#f6f2ff;
-      --muted:#b6a8cf;
-      --accent:#a020f0;
-      --accent-2:#ff4ecd;
-      --gold:#f7c948;
-      --ok:#22c55e;
-      --danger:#ef4444;
-      --shadow:0 8px 30px rgba(160,32,240,.25);
-      --radius:22px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:radial-gradient(1200px 700px at 10% -10%, rgba(255,78,205,.10), transparent 60%),
-               radial-gradient(1200px 700px at 110% 10%, rgba(160,32,240,.18), transparent 60%), var(--bg);
-               color:var(--ink);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
-    a{color:inherit;text-decoration:none}
+<style>
+/* Efeitos gerais de hover para cards */
+.photo.box {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.06);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.photo.box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 16px 40px rgba(160,32,240,.35);
+}
 
-    /* Header */
-    header{
-      position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);
-      background:linear-gradient(to right, rgba(11,10,13,.75), rgba(18,16,26,.75));
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .wrap{max-width:1180px;margin:0 auto;padding:18px 22px}
-    .row{display:flex;align-items:center;gap:18px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand .logo{width:42px;height:42px;border-radius:50%;
-      background:conic-gradient(from 140deg, var(--accent), var(--accent-2), var(--gold), var(--accent));
-      box-shadow:0 0 0 3px rgba(255,255,255,.06), 0 8px 24px rgba(255,78,205,.25)}
-    .brand h1{font-size:1.38rem;margin:0;font-weight:800;letter-spacing:.3px}
-    .brand small{display:block;color:var(--muted);font-weight:500;margin-top:-2px}
+/* Efeito hover em badges */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.photo.box:hover .badge {
+  transform: translateY(-3px);
+}
 
-    /* Nav */
-    nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
-    .tab{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;
-      background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);
-      transition:all .2s ease;cursor:pointer;font-weight:600;color:#eee}
-    .tab svg{width:18px;height:18px;opacity:.9}
-    .tab:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
-    .tab.active{background:linear-gradient(90deg, rgba(160,32,240,.16), rgba(255,78,205,.14));
-      border-color:rgba(255,255,255,.12)}
+/* Transição suave ao trocar tabs */
+.sections .section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  display: none;
+}
+.sections .section.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    /* Layout */
-    .grid{max-width:1180px;margin:22px auto;display:grid;gap:22px;grid-template-columns:260px 1fr 320px}
-    @media (max-width:1100px){.grid{grid-template-columns:240px 1fr}} 
-    @media (max-width:930px){.grid{grid-template-columns:1fr}} 
+/* Hover nos botões */
+.btn {
+  transition: all 0.25s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
 
-    /* Left – Gallery */
-    .side{
-      position:sticky;top:92px;align-self:start;display:flex;flex-direction:column;gap:14px
-    }
-    .photo{
-      border-radius:var(--radius);overflow:hidden;background:var(--card);
-      border:1px solid rgba(255,255,255,.06);box-shadow:var(--shadow)
-    }
-    .photo img{display:block;width:100%;height:320px;object-fit:cover}
-    .badge{position:absolute;top:10px;left:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));
-      padding:6px 10px;border-radius:999px;font-size:.78rem;font-weight:700}
-    .photo.box{position:relative}
-
-    /* Center – Content */
-    .center{display:flex;flex-direction:column;gap:18px}
-    .hero{
-      display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:stretch
-    }
-    @media (max-width:930px){.hero{grid-template-columns:1fr}}
-    .panel{
-      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
-      border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)
-    }
-    .hero .panel{display:flex;flex-direction:column;justify-content:center}
-    h2{margin:0 0 8px;font-size:1.8rem}
-    p.lead{margin:0;color:var(--muted);line-height:1.65}
-
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;
-      font-weight:700;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);
-      cursor:pointer;transition:all .2s ease}
-    .btn svg{width:18px;height:18px}
-    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));border-color:transparent}
-    .btn.primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
-    .btn.outline:hover{background:rgba(255,255,255,.12)}
-
-    /* Sections */
-    .sections .section{display:none}
-    .sections .section.active{display:block}
-
-    /* Product grid */
-    .grid4{display:grid;gap:16px;grid-template-columns:repeat(4,1fr)}
-    @media (max-width:1100px){.grid4{grid-template-columns:repeat(3,1fr)}}
-    @media (max-width:780px){.grid4{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:520px){.grid4{grid-template-columns:1fr}}
-    .card{
-      background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;position:relative
-    }
-    .card .thumb{height:180px;background:#000}
-    .card .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05)}
-    .card .body{padding:14px}
-    .card .title{font-weight:700;margin:0 0 6px}
-    .price{font-weight:800;font-size:1.05rem}
-    .price s{color:#aaa;font-weight:600;margin-right:6px}
-    .cta-card{display:flex;justify-content:space-between;gap:10px;margin-top:10px}
-    .pill{font-size:.78rem;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-size:.78rem}
-
-    /* Right – Subscribe */
-    .right{position:sticky;top:92px;align-self:start;display:flex;flex-direction:column;gap:18px}
-    .subscribe{background:linear-gradient(180deg, rgba(160,32,240,.16), rgba(255,78,205,.10));}
-    .features{display:grid;gap:10px}
-    .feat{display:flex;gap:10px;align-items:flex-start}
-    .feat .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);margin-top:8px;box-shadow:0 0 0 3px rgba(247,201,72,.2)}
-
-    /* Testimonials */
-    .quote{font-style:italic;color:#ddd}
-
-    /* Footer */
-    footer{margin:40px auto 20px;max-width:1180px;padding:0 22px;color:#cfc6dd}
-    footer .fine{font-size:.85rem;opacity:.85}
-
-    /* Age Gate */
-    .age-gate{position:fixed;inset:0;background:rgba(8,6,12,.85);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:100}
-    .age-gate.active{display:flex}
-    .age-card{max-width:560px;padding:26px;border-radius:20px;background:var(--bg-2);border:1px solid rgba(255,255,255,.1);box-shadow:var(--shadow)}
-    .age-card h3{margin:0 0 6px}
-    .age-card p{margin:0 0 16px;color:var(--muted)}
-
-    /* Utilities */
-    .note{font-size:.86rem;color:var(--muted)}
-    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-size:.78rem;font-weight:600}
-  </style>
-</head>
-<body>
-
-<header>
-  <div class="wrap row">
-    <div class="brand">
-      <div class="logo"></div>
-      <div>
-        <h1>RaphaVip</h1>
-        <small>VIP Conteúdos</small>
-      </div>
-    </div>
-    <nav>
-      <div class="tab active">Destaques</div>
-      <div class="tab">Loja</div>
-      <div class="tab">Packs</div>
-    </nav>
-  </div>
-</header>
-
-<div class="grid">
-  <!-- Left Gallery (ex: imagens populares) -->
-  <div class="side">
-    <div class="photo box"><img src="assets/side1.jpg" alt="Popular 1"></div>
-    <div class="photo box"><img src="assets/side2.jpg" alt="Popular 2"></div>
-    <div class="photo box"><img src="assets/side3.jpg" alt="Popular 3"></div>
-  </div>
-
-  <!-- Center Content -->
-  <section class="center sections">
-    <!-- Destaque da Semana -->
-    <div class="section active">
-      <div class="panel">
-        <h2>Destaque da Semana</h2>
-        <p class="lead">Confira o conteúdo mais procurado pelos nossos assinantes VIP!</p>
-        <div class="grid4">
-          <div class="photo box"><span class="badge">HOT</span><img src="assets/destaque1.jpg" alt="Destaque 1" /></div>
-          <div class="photo box"><span class="badge">TOP</span><img src="assets/destaque2.jpg" alt="Destaque 2" /></div>
-          <div class="photo box"><span class="badge">NOVO</span><img src="assets/destaque3.jpg" alt="Destaque 3" /></div>
-          <div class="photo box"><span class="badge">VIP</span><img src="assets/destaque4.jpg" alt="Destaque 4" /></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Loja -->
-    <div class="section">
-      <div class="panel">
-        <h2>Loja</h2>
-        <p class="lead">Produtos exclusivos que você só encontra aqui.</p>
-        <div class="grid4">
-          <div class="photo box"><img src="assets/loja1.jpg" alt="Produto 1" /><div class="pill">R$49,90</div></div>
-          <div class="photo box"><img src="assets/loja2.jpg" alt="Produto 2" /><div class="pill">R$69,90</div></div>
-          <div class="photo box"><img src="assets/loja3.jpg" alt="Produto 3" /><div class="pill">R$29,90</div></div>
-          <div class="photo box"><img src="assets/loja4.jpg" alt="Produto 4" /><div class="pill">R$99,90</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Packs Promocionais -->
-    <div class="section">
-      <div class="panel">
-        <h2>Packs Promocionais</h2>
-        <p class="lead">Combos especiais com preços imperdíveis!</p>
-        <div class="grid4">
-          <div class="photo box"><span class="badge">-20%</span><img src="assets/pack1.jpg" alt="Pack 1" /></div>
-          <div class="photo box"><span class="badge">-30%</span><img src="assets/pack2.jpg" alt="Pack 2" /></div>
-          <div class="photo box"><span class="badge">-25%</span><img src="assets/pack3.jpg" alt="Pack 3" /></div>
-          <div class="photo box"><span class="badge">-15%</span><img src="assets/pack4.jpg" alt="Pack 4" /></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Right Sidebar -->
-  <div class="right">
-    <div class="panel subscribe">
-      <h2>Seja VIP</h2>
-      <p class="lead">Assine agora e tenha acesso completo aos conteúdos exclusivos!</p>
-      <div class="cta-row">
-        <button class="btn primary">Assinar</button>
-        <button class="btn outline">Mais Info</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<footer>
-  <p class="fine">&copy; 2025 RaphaVip. Todos os direitos reservados.</p>
-</footer>
-
-<script>
-  const tabs = document.querySelectorAll('.tab');
-  const sections = document.querySelectorAll('.section');
-  tabs.forEach((tab,i)=>{
-    tab.addEventListener('click',()=>{
-      tabs.forEach(t=>t.classList.remove('active'));
-      tab.classList.add('active');
-      sections.forEach(s=>s.classList.remove('active'));
-      sections[i].classList.add('active');
-    })
-  })
-</script>
-
-</body>
-</html>
+/* Mobile tweaks */
+@media (max-width:780px){
+  .grid4 { grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:520px){
+  .grid4 { grid-template-columns:1fr; }
+}
+</style>
